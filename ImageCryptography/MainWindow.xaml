@@ -6,33 +6,55 @@
         xmlns:local="clr-namespace:ImageCryptography"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="610">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <TabControl Margin="1">
-            <TabItem Header="Encoding">
-                <StackPanel Orientation="Horizontal">
-                    <Button Name="btnOpenImageEncode" Height="40" Width="100" Margin="5" Content="Open image"/>
-                    <Button Name="btnOpenImageSource" Height="40" Width="140" Margin="5" Content="Open source"/>
-                    <Button Name="btnSaveImageEncode" Height="40" Width="140" Margin="5" Content="Save image encode"/>
-                    <Separator />
-                    <Label Content="Password :" Width="auto" Height="25" Margin="5"/>
-                    <TextBox Name="tbPas1"  Width="100" Height="25" Margin="5"/>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="Decoding">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                
+            </MenuItem>
+            <MenuItem Header="Help">
+                
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <Label Name="lblPrg">progress</Label>
+        </StatusBar>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TabControl Margin="1">
+                <TabItem Header="Encoding">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnOpenImageEncode"
+                                Height="40" Width="100" Margin="5"
+                                ToolTip="Open image for encoding">Open image</Button>
+                        <Button Name="btnOpenImageSource"
+                                Height="40" Width="140" Margin="5" 
+                                ToolTip="Open images, to encrypt the photo inside them">Open source</Button>
+                        <Button Name="btnSaveImageEncode"
+                                Height="40" Width="140" Margin="5"
+                                ToolTip="Save encrypted images">Save image encode</Button>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Decoding">
+                    <StackPanel Orientation="Horizontal" >
+                        <Button Name="btnOpenImagesDencode"
+                                Height="40" Width="100" Margin="5"
+                                ToolTip="Open images for decrypting">Open images</Button>
+                        <Button Name="btnSaveImageDencode"
+                                Height="40" Width="140" Margin="5"
+                                ToolTip="Save decrypted image">Save image encode</Button>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+            <Border Grid.Row="1" >
                 <StackPanel Orientation="Horizontal" >
-                    <Button Name="btnOpenImagesDencode" Height="40" Width="100" Margin="5" Content="Open images"/>
-                    <Button Name="btnSaveImageDencode" Height="40" Width="140" Margin="5" Content="Save image encode"/>
-                    <Separator />
-                    <DockPanel Width="335">
-                        <TextBox DockPanel.Dock="Right" Name="tbPas2" Width="100" Height="25" Margin="5" />
-                        <Label Content="Password :" Width="68" Height="25" Margin="5" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
-                    </DockPanel>
+                    <Label Width="auto" Height="25" Margin="5">Password :</Label>
+                    <TextBox Name="tbPas"  Width="100" Height="25" Margin="5"/>
                 </StackPanel>
-            </TabItem>
-        </TabControl>
-    </Grid>
+            </Border>
+        </Grid>
+    </DockPanel>
 </Window>
